@@ -1,3 +1,5 @@
+require_relative 'encoder'
+
 class Writer
 
   attr_reader :data, :file
