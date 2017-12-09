@@ -13,6 +13,6 @@ class NightWriter
   end
 
   def encode_to_braille(file_contents)
-
+    
   end
 end
