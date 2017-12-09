@@ -7,10 +7,10 @@ class Reader
   end
 
   def open_file
-    return @filename.open(filename, 'r')
+    return File.open(@filename, 'r')
   end
 
   def read_file
-    return File.read(open_file)
+    return File.read(open_file).chomp
   end
 end
