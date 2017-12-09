@@ -1,14 +1,18 @@
-class NightWrite
+require_relative 'file_reader'
 
-  def
+class NightWriter
+  attr_reader = :reader
 
-  def open_read_files(file)
-    reader = File.open(ARGV[0], 'r')
-    reader
+  def initialize()
+    @reader = FileReader.new
   end
 
-  def file_contents(reader)
-    
+  def encode_file_to_braille
+    file_contents = reader
+    braille = encode_to_braille(file_contents)
+  end
 
+  def encode_to_braille(file_contents)
 
+  end
 end
