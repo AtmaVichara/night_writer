@@ -2,7 +2,7 @@
 class Reader
   attr_reader :filename
 
-  def initialize(filename = ARGV[0])
+  def initialize(filename)
     @filename = filename
   end
 
