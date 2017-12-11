@@ -1,21 +1,21 @@
 require_relative 'encoder'
 require_relative 'night_write'
 
-class Writer < NightWrite
+class Writer
 
   attr_reader :data, :file
 
-  def default_args
-    {
-      data: ,
-      file: write_file
-    }
-  end
+  # def default_args
+  #   {
+  #     data: ,
+  #     file: write_file
+  #   }
+  # end
 
-  def initialize(args = {})
-    args = args.merge(default_args)
-    @data = :data
-    @file = :file
+  def initialize(file, *data)
+    # args = args.merge(default_args)
+    @data = data
+    @file = file
   end
 
   def write_to_file(data)

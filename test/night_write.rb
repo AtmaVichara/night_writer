@@ -25,24 +25,10 @@ class NightWriter
   def format_for_writing
     formatter = Formatter.new(encode_data_to_braille_pairs)
     formatter.format_braille_grid
-    formatter
-  end
-
-  def top_grid
-    format_for_writing.top.join
-  end
-
-  def middle_grid
-    format_for_writing.middle.join
-  end
-
-  def bottom_grid
-    format_for_writing.bottom.join
   end
 
   def write_data
-    writer = Writer.new(ARGV[1], top_grid, middle_grid, bottom_grid)
-    writer.
+    writer = Writer.new(ARGV[1], format_for_writing)
   end
 
 end

@@ -7,7 +7,7 @@ require "./lib/dictionary.rb"
 class EncoderTest < Minitest::Test
 
   def test_data_is_initialized
-    file_contents = Encoder.new
+    file_contents = Encoder.new(Reader.new('test_reader_file.txt'))
 
     assert_instance_of Encoder, file_contents
   end
