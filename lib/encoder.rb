@@ -1,17 +1,24 @@
 require_relative 'dictionary'
-require_relative 'reader'
+require_relative 'writer'
 
 class Encoder
 
   attr_reader :data, :alphabet
 
-  def initialize(data = Reader.new(ARGV[0]), alphabet = Dictionary::LETTERS_DICT)
-    @data = data
-    @alphabet = alphabet
+  def initialize(args={})
+    args = args.merge(default_args)
+    @data = args[:data]
+    @alphabet = args[:alphabet]
   end
 
+  def default_args
+    {
+      data: NightWriter.new,
+      alphabet: Dictionary::LETTERS_DICT
+    }
+
   def file_data
-    @data.read_file
+    @data.reader
   end
 
   def split_file_data

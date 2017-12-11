@@ -7,6 +7,9 @@ require "./lib/dictionary.rb"
 class EncoderTest < Minitest::Test
 
   def test_data_is_initialized
+
+    require 'pry'; binding.pry
+
     file_contents = Encoder.new
 
     assert_instance_of Encoder, file_contents
