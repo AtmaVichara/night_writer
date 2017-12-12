@@ -1,5 +1,6 @@
 require_relative 'encoder'
 require_relative 'night_write'
+require_relative 'formatter'
 
 class Writer
 
@@ -12,13 +13,16 @@ class Writer
   #   }
   # end
 
-  def initialize(file, *data)
+  def initialize(file, data)
     # args = args.merge(default_args)
     @data = data
     @file = file
   end
 
-  def write_to_file(data)
-    File.new(@file, 'w') { |new_file| new_file.puts data }
+  def write_braille
+    new_file = File.open(@file, 'w')
+    new_file.write(@data[0] + "\n")
+    new_file.write(@data[1] + "\n")
+    new_file.write(@data[2] + "\n")
   end
 end

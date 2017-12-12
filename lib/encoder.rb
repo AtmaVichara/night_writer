@@ -10,12 +10,12 @@ class Encoder
     @alphabet = alphabet
   end
 
-  def file_data
-    @data.read_file
-  end
+  # def file_data
+  #   @data.read_file
+  # end
 
   def split_file_data
-    file_data.split('')
+    @data.split('')
   end
 
   def check_for_braille_value

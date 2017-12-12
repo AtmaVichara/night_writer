@@ -2,13 +2,14 @@ require_relative 'encoder'
 
 class Formatter
 
-  attr_reader :top, :middle, :bottom, :data
+  attr_reader :top, :middle, :bottom, :data, :total
 
   def initialize(data)
     @data = data
     @top = []
     @middle = []
     @bottom = []
+    @total = []
   end
   #
   # def starting_element(element)
@@ -21,12 +22,8 @@ class Formatter
     @bottom << @data.drop(2).each_slice(3).map(&:first)
   end
 
-  def join_braille_pairs
-    @top.join
-    @middle.join
-    @bottom.join
-  end 
-
-
+  def complete_grid
+    @total << @top.join << @middle.join << @bottom.join
+  end
 
 end
