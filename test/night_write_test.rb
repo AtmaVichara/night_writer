@@ -12,21 +12,23 @@ class NightWriteTest < Minitest::Test
   end
 
   def test_file_data_reads_file
-    night_write = NightWriter.new('test_reader_file.txt')
+    night_write = NightWriter.new('message.txt')
 
-    assert_equal "This is a test.", night_write.file_data
+    assert_equal "hello world", night_write.file_data
   end
 
   def test_encoder_encodes_braille_pairs
-    night_write = NightWriter.new('test_reader_file.txt')
+    night_write = NightWriter.new('message.txt')
 
-    assert_equal [".0", "00", "0.", "0.", "00", "..", ".0", "0.", "..", ".0", "0.", "0.", "..", "..", "..",
-                  ".0", "0.", "..", ".0", "0.", "0.", "..", "..", "..", "0.", "..", "..", "..", "..", "..",
-                  ".0", "00", "0.", "0.", ".0", "..", ".0", "0.", "0.", ".0", "00", "0.", "..", "..", ".."],
+
+
+    assert_equal ["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.",
+                  "0.", ".0", "0.", "..", "..", "..", ".0", "00", ".0", "0.", ".0", "0.",
+                  "0.", "00", "0.", "0.", "0.", "0.", "00", ".0", ".."],
                   night_write.encode_data_to_braille_pairs
   end
 
-  
+
 
 
 end
