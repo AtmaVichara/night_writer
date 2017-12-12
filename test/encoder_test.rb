@@ -7,7 +7,7 @@ require "./lib/dictionary.rb"
 class EncoderTest < Minitest::Test
 
   def test_data_is_initialized
-    file_contents = Encoder.new(Reader.new('test_reader_file.txt'))
+    file_contents = Encoder.new(Reader.new('test_reader_file.txt')
 
     assert_instance_of Encoder, file_contents
   end
@@ -51,11 +51,11 @@ class EncoderTest < Minitest::Test
    end
 
    def test_braille_pairs_returns_array_of_braille_pairs
-     file_contents = Encoder.new(Reader.new('test_reader_file.txt'))
+     file_contents = Encoder.new(Reader.new('message.txt'))
 
-      assert_equal [".0", "00", "0.", "0.", "00", "..", ".0", "0.", "..", ".0", "0.", "0.", "..", "..", "..",
-                    ".0", "0.", "..", ".0", "0.", "0.", "..", "..", "..", "0.", "..", "..", "..", "..", "..",
-                    ".0", "00", "0.", "0.", ".0", "..", ".0", "0.", "0.", ".0", "00", "0.", "..", "..", ".."],
+      assert_equal ["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.",
+                    "0.", ".0", "0.", "..", "..", "..", ".0", "00", ".0", "0.", ".0", "0.",
+                    "0.", "00", "0.", "0.", "0.", "0.", "00", ".0", ".."],
                     file_contents.braille_pairs
    end
 
