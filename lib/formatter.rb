@@ -14,7 +14,7 @@ class Formatter
 
   def format_braille_grid
 
-    # Grabbing each pairs by the nth (3rd) element and
+    # Grabbing each pairs by the nth (3rd) element from data and
     # assigning it to its corresponding line in the grid
     @top << @data.each_slice(3).map(&:first)
     @middle << @data.drop(1).each_slice(3).map(&:first)
