@@ -29,7 +29,7 @@ class FormatterTest < Minitest::Test
     formatter = Formatter.new(data)
     formatter.format_braille_grid
 
-    assert_equal [["0.", "0.", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", "00"]],
+    assert_equal ["0.0.0.0.0....00.0.0.00"],
     formatter.top
   end
 
@@ -37,7 +37,7 @@ class FormatterTest < Minitest::Test
     formatter = Formatter.new(data)
     formatter.format_braille_grid
 
-    assert_equal [["00", ".0", "0.", "0.", ".0", "..", "00", ".0", "00", "0.", ".0"]],
+    assert_equal ["00.00.0..0..00.0000..0"],
     formatter.middle
   end
 
@@ -45,17 +45,8 @@ class FormatterTest < Minitest::Test
     formatter = Formatter.new(data)
     formatter.format_braille_grid
 
-    assert_equal [["..", "..", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", ".."]],
+    assert_equal ["....0.0.0....00.0.0..."],
     formatter.bottom
-  end
-
-  def test_complete_grid_returns_correct_values
-    formatter = Formatter.new(data)
-    formatter.format_braille_grid
-    formatter.complete_grid
-
-    assert_equal ['0.0.0.0.0....00.0.0.00', '00.00.0..0..00.0000..0', '....0.0.0....00.0.0...'],
-    formatter.total
   end
 
 end
