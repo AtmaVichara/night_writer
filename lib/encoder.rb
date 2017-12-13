@@ -10,10 +10,6 @@ class Encoder
     @alphabet = alphabet
   end
 
-  # def file_data
-  #   @data.read_file
-  # end
-
   def split_file_data
     @data.split('')
   end
@@ -33,10 +29,5 @@ class Encoder
     split_braille_chars.each_slice(2) { |pairs| braille_pairs << pairs}
     braille_pairs.map { |pairs| pairs.join }
   end
-
-  # def encode_file_to_braille
-  #   file_contents = reader
-  #   braille = encode_to_braille(file_contents)
-  # end
 
 end

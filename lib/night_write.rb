@@ -3,34 +3,38 @@ require_relative 'reader'
 require_relative 'formatter'
 require_relative 'encoder'
 
-class NightWriter
+count = 0
 
-  attr_reader :file, :write_file
+# Read the incoming message file to decode, and save the contents
+# to a variable
+reader    = Reader.new(ARGV[0])
+data      = reader.read_file
 
-  def initialize(file = ARGV[0], write_file = ARGV[1])
-    @file = file
-    @write_file = write_file
-  end
+# Take the contents and encode to braille pairs for formatting
+# then take the pairs and save them to a variable to pass in to
+# formatter.
+encoder   = Encoder.new(data)
+encoded   = encoder.braille_pairs
 
-  def file_data
-    reader = Reader.new(@file)
-    reader.read_file
-  end
+# Take the braille pairs from encoder and pass them into the
+# Formatter object, then format the
+formatter = Formatter.new(encoded)
+formatter.format_braille_grid
 
-  def encode_data_to_braille_pairs
-    encoder = Encoder.new(file_data)
-    encoder.braille_pairs
-  end
 
-  def format_for_writing
-    formatter = Formatter.new(encode_data_to_braille_pairs)
-    formatter.format_braille_grid
-    formatter.complete_grid
-    formatter.total
-  end
-
-  def write_data
-    writer = Writer.new(ARGV[1], format_for_writing)
-  end
-
+# Now we open a new file to write to.
+# We then assign formatters rows to variables
+# We then loop based upon the length of one row
+# and we put a new line each iteration through, using the count
+# as the index for each top, middle, and bottom
+# then plus the count
+new_file  = File.open(ARGV[1], 'w')
+top       = formatter.top
+bottom    = formatter.bottom
+middle    = formatter.middle
+top.length.times do
+  new_file.puts(top[count])
+  new_file.puts(middle[count])
+  new_file.puts(bottom[count])
+  count += 1
 end

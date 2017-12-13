@@ -6,15 +6,7 @@ class Writer
 
   attr_reader :data, :file
 
-  # def default_args
-  #   {
-  #     data: ,
-  #     file: write_file
-  #   }
-  # end
-
   def initialize(file, data)
-    # args = args.merge(default_args)
     @data = data
     @file = file
   end
