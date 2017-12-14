@@ -3,7 +3,6 @@ require "minitest/pride"
 require "./lib/encoder.rb"
 require "./lib/dictionary.rb"
 
-
 class EncoderTest < Minitest::Test
 
   attr_reader :data

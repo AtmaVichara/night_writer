@@ -23,7 +23,7 @@ class Decoder
     @bottom.flatten!
   end
 
-  def remove_new_line_return
+  def join_lines
     @top = @top.map { |line| line.chomp }
     @middle = @middle.map { |line| line.chomp }
     @bottom = @bottom.map { |line| line.chomp }
@@ -60,4 +60,5 @@ class Decoder
   def english_translation
     @total = @total.join
   end
+
 end
