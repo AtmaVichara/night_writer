@@ -7,13 +7,17 @@ require "./lib/dictionary.rb"
 class EncoderTest < Minitest::Test
 
   def test_data_is_initialized
-    file_contents = Encoder.new(Reader.new('test_reader_file.txt')
+    file_contents = Encoder.new(Reader.new('test_reader_file.txt'))
+
+    require 'pry'; binding.pry
+
 
     assert_instance_of Encoder, file_contents
   end
 
   def test_file_data_contains_contents_of_file
     file_contents = Encoder.new(Reader.new('test_reader_file.txt'))
+
 
     assert_equal "This is a test.", file_contents.file_data
   end

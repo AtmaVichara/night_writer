@@ -1,4 +1,4 @@
-require './lib/night_write'
+require './lib/night_writer'
 require 'minitest/autorun'
 require 'minitest/pride'
 
