@@ -1,5 +1,5 @@
-require_relative 'reader'
 require_relative 'encoder'
+
 # Read the incoming message file to decode, and save the contents
 # to a variable
 reader    = File.open(ARGV[0], 'r')

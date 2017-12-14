@@ -1,5 +1,4 @@
 require_relative 'dictionary'
-require_relative 'reader'
 
 class Encoder
 
